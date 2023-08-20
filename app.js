@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors'); // Import the cors package
 const turf = require('turf');
 const {generateLine} = require('./generateLine.js');
 const fs =  require('fs');
 
 const app = express();
-
+app.use(bodyParser.json());
+app.use(cors()); // Use the cors middleware to allow all origins
 // Middleware
 app.use(bodyParser.json());
 
